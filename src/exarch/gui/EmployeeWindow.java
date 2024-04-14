@@ -100,6 +100,7 @@ public class EmployeeWindow extends Stage {
         String name = txfName.getText().trim();
         if (name.length() == 0) {
             lblError.setText("Name is empty");
+            return;
         }
         int hourlyWage = -1;
         try {
@@ -109,6 +110,11 @@ public class EmployeeWindow extends Stage {
         }
         if (hourlyWage < 0) {
             lblError.setText("Wage is not a positive number");
+            return;
+        }
+        if (coxCompany.getValue() == null) {
+            lblError.setText("Please select a company");
+            return;
         }
 
         if (employee != null) {

@@ -19,6 +19,9 @@ public class EmployeePane extends GridPane {
     private final TextField txfHourlyWage = new TextField();
     private final TextField txfCompany = new TextField();
     private final TextField txfWeeklySalary = new TextField();
+    private Button btnDelete = new Button("Delete");
+    private Button btnUpdate = new Button("Update");
+
 
     public EmployeePane() {
         this.setPadding(new Insets(20));
@@ -83,11 +86,9 @@ public class EmployeePane extends GridPane {
         hbxButtons.getChildren().add(btnCreate);
         btnCreate.setOnAction(event -> this.createAction());
 
-        Button btnUpdate = new Button("Update");
         hbxButtons.getChildren().add(btnUpdate);
         btnUpdate.setOnAction(event -> this.updateAction());
 
-        Button btnDelete = new Button("Delete");
         hbxButtons.getChildren().add(btnDelete);
         btnDelete.setOnAction(event -> this.deleteAction());
 
@@ -159,12 +160,17 @@ public class EmployeePane extends GridPane {
                 txfCompany.setText(employee.getCompany().toString());
 
             }
+            btnDelete.setDisable(false);
+            btnUpdate.setDisable(false);
 
         } else {
             txfName.clear();
             txfHourlyWage.clear();
             txfCompany.clear();
             txfWeeklySalary.clear();
+            btnDelete.setDisable(true);
+            btnUpdate.setDisable(true);
+
         }
     }
 

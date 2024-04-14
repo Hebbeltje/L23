@@ -110,10 +110,10 @@ public class CompanyWindow extends Stage {
         if (company != null) {
             // update existing company
             Controller.updateCompany(company, name, hours);
-        } else
+        } else {
             // create new company
             Controller.createCompany(name, hours);
-
+        }
         this.hide();
     }
 }
